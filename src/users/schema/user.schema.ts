@@ -8,14 +8,14 @@ export type UserDocument = HydratedDocument<User>;
 })
 export class User {
   @Prop({
-    require: true,
+    required: true,
     unique: true,
     lowercase: true,
     trim: true,
   })
   email: string;
   @Prop({
-    require: true,
+    required: true,
   })
   passwordHash: string;
   @Prop({
@@ -23,22 +23,27 @@ export class User {
   })
   isEmailVerified: boolean;
   @Prop({
-    default: false,
+    type: String,
+    default: null,
   })
   emailVerificationToken: string | null;
   @Prop({
+    type: Date,
     default: null,
   })
   emailVerificationExpires: Date | null;
   @Prop({
+    type: String,
     default: null,
   })
   refreshTokenHash: string | null;
   @Prop({
+    type: String,
     default: null,
   })
   passwordResetToken: string | null;
   @Prop({
+    type: Date,
     default: null,
   })
   passwordResetExpires: Date | null;

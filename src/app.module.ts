@@ -10,7 +10,7 @@ import { userModule } from './users/users.module';
       isGlobal: true,
     }),
 
-    MongooseModule.forRoot(process.env.MONGODB_URI as string),
+    MongooseModule.forRoot(process.env.MONGODB_URI || 'mongodb://localhost:27017/auth'),
     userModule,
   ],
 })
